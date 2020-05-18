@@ -1,0 +1,156 @@
+ <!DOCTYPEhtml>
+<html>
+  <head>
+    <title>High Order Function</title>
+    <meta charset="UTF-8">
+    <meta name="Description" content="This is high order funcion and array">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body>
+    <script>
+    const companies=[
+      {name:"Google" ,catagory:"Tech" , start:1990,end:2019},
+      {name:"Standard Charterd" ,catagory:"Finance" , start:1982,end:2003},
+      {name:"Tv today" ,catagory:"Media" , start:1991,end:2006},
+      {name:"Wallmart" ,catagory:"Retail" , start:1987,end:2018},
+      {name:"Mercedese" ,catagory:"Auto" , start:1994,end:2017},
+      {name:"Reliance Fresh" ,catagory:"Retail" , start:1983,end:2019},
+      {name:"Icici" ,catagory:"Finance" , start:2001,end:2017},
+      {name:"Wipro" ,catagory:"Tech" , start:2006,end:2019},
+      {name:"Tv 18" ,catagory:"Media" , start:1986,end:2016}
+    ];
+
+    const ages=[18,40,32,38,21,,20,25,28,26,34,32,63];
+
+    //======================================================
+    // for(i=0;i<companies.length;i++){
+   // console.log(companies[i]);}
+
+   //-----------------------------------------------------
+   //for each---
+    companies.forEach((company)=>{console.log(company);});
+    companies.forEach((company)=>{console.log(company.name+"\n"+company.catagory);});
+
+   //==========================================================
+
+  // ------------Filter  ----------
+
+  let canDrink=[];
+   for(i=0;i<=ages.length;i++) {
+     if(ages[i]>= 18){
+       canDrink.push(ages[i]);
+     }
+   }
+   document.write(canDrink);
+   document.write("<hr/>")
+
+   //---------------------------------------------------------
+
+   let canDrive=ages.filter(function(age){
+     if(age>=20){
+       return true;
+     }
+   });
+
+   document.write(canDrive);
+   document.write("<hr/>")
+   //---------------------------------------
+
+     let canDrive_1= ages.filter((age_1)=> age_1>=20);
+  //  let canDrive_1= ages.filter((age_1)=> age_1>=21 ? true: false);
+   document.write("You can drive who,s age are :<br/>")
+   document.write(canDrive_1)
+   document.write("<hr/>");
+
+//-----------------------------------------------
+  //const retailCompany=companies.filter((company)=>{
+    // if(company.catagory=== 'Retail'){
+    // return true;} });
+
+  const retailCompany = companies.filter((company)=> company.catagory === "Retail" ? true: false );
+  console.log(retailCompany);
+  console.log("<hr/>");
+  //-----------------------------------------------------
+   let companyDate = companies.filter((company_1)=> (company_1.start >= 1990 && company_1.start<=2000) );
+  console.log(companyDate);
+  //--------- Company last from  18 years---------------
+   let lastedTenYears = companies.filter((company_2) => (company_2.end - company_2.start >=18));
+  console.log(lastedTenYears);
+
+//=======================================================
+
+//------------------Map function------------------------
+
+  let testMap = companies.map(function(company){
+     return (company.name +"<br/>");
+  })
+  document.write(testMap);
+document.write("<hr/>");
+
+let testMap_1 = companies.map(function(company) {
+    return (`${company.name} [${company.start} - ${company.end}]<br/>`);
+});
+  document.write(testMap_1);
+  document.write("<hr/>");
+//-----------------------------
+
+ let ageSqreRoot = ages.map((age)=> Math.sqrt(age)+"<br/>");
+  document.write(ageSqreRoot);
+  document.write("<hr/>");
+
+let ageSqreRoot_1 = ages.map((age)=> age*2+"<br/>");
+ document.write(ageSqreRoot_1);
+ document.write("<hr/>")
+
+ // -------Combinig two Maps------------
+
+ let ageMap = ages.map(age =>Math.sqrt(age))
+                  .map(age=>age*2);
+ document.write(ageMap);
+ document.write("<hr/>");
+
+ //=============================================
+
+ //------------------Sort Function----------------
+
+
+  /*
+  const sortedCompanies = companies.sort(function(c1,c2){
+  if(c1.start>c2.start){
+    return 1;
+  }
+else{
+    return -1;
+ } } );
+ console.log(sortedCompanies);
+ document.write("<hr/>");
+ */
+  var  sortedCompanies_1 = companies.sort((a,b) => (a.start > b.start ? 1:-1));
+       console.log(sortedCompanies_1);
+       document.write("<hr/>");
+  //-----------------------------------------------------
+   const sortAge = ages.sort();
+   document.write(sortAge);
+   document.write("<hr/>");
+  //---------------------------------------------------
+  var sortAge_1 = ages.sort((a,b)=>a-b);
+  document.write(sortAge_1);
+  document.write("<hr/>");
+
+  //--------------------------------------------------
+   var sortAge_2 = ages.sort((a,b)=>b-a);
+  document.write(sortAge_2);
+  document.write("<hr/>");
+
+
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
