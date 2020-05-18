@@ -1,0 +1,80 @@
+<!DOCTYPE html><html>
+<head>
+  <meta charset="UTF-8">
+  <title>Class 2</title>
+  <meta name="class" content="get and set">
+  <link rel="shortcut icon" href="E:\mintu\Prac_code\Atom\img\javascript-short_logo.png">
+</head>
+<body>
+  <script>
+class square {
+  constructor(_width){
+        console.log("this is Square : ")
+        this.width = _width;
+        this.height= _width;
+  }
+  get area(){
+     return this.width * this.height;
+  }
+}
+
+let square1= new square(5);
+console.log(square1);
+console.log(square1.area)
+
+//------------------------------------------------------
+// set -------------------
+
+class square_1 {
+  constructor(_width){
+        console.log("this is Square : ")
+        this.width = _width;
+        this.height= _width;
+  }
+  get area(){
+     return this.width * this.height;
+  }
+  set area(area){
+    this.width= Math.sqrt(area);
+    this.height= this.width;
+  }
+}
+
+let square3= new square_1();
+  square3.area= 36
+
+//console.log(square3);
+console.log(square3.width)
+
+//---------------------------------------------
+
+
+class square_2 {
+  constructor(_width){
+        console.log("this is Square : ")
+        this.width = _width;
+        this.height= _width;
+        this.numberOfRequestForArea= 0;
+  }
+  get area(){
+    this.numberOfRequestForArea++;
+     return this.width * this.height;
+  }
+  set area(area){
+    this.width= Math.sqrt(area);
+    this.height= this.width;
+  }
+}
+
+let square5= new square_2();
+  square5.area= 36
+
+//console.log(square3);
+console.log(square5.area)
+console.log(square5.area)
+console.log(square5.area)
+console.log(square5.area)
+console.log(square5.numberOfRequestForArea)
+</script>
+</body>
+</html>
