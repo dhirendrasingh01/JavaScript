@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function add(a,b) {
+        if(!b){
+          return (b)=>{
+            return add(a,b);
+            //return a+b;
+          }
+        }
+      return a+b;
+      }
+      console.log(add(2,3));
+      console.log(add(2)(3));
+      //===============================================
+
+      function sum(x, y) {
+      if (y !== undefined) {
+       return x + y;
+       } else {
+         return function(y) { return x + y; };
+     }
+     }
+console.log(sum(2)(3));
+console.log(sum(2,6));
+
+//=====================================================
+
+
+function add1(x,y,z) {
+  if(!y ){
+    return (y)=>{
+      if(!z){
+        return (z)=>{
+          return x+y+z;
+                }
+              }
+          }
+       }
+    return x+y+z;
+     }
+    console.log(add1(2,3,4));
+   console.log(add1(2)(3)(1));
+    </script>
+
+  </body>
+</html>
